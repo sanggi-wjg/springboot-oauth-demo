@@ -1,0 +1,20 @@
+server:
+  port: 9011
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9010/realms/SpringBootKeycloak
+      client:
+        registration:
+          keycloak:
+            client-id: login-app
+            authorization-grant-type: authorization_code
+            scope:
+              - openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9010/realms/SpringBootKeycloak
+            user-name-attribute: preferred_username
